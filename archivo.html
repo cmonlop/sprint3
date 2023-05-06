@@ -79,11 +79,20 @@
 
                 <!-- ******************* CANTIDAD CARGAS FAMILIARES *************************** -->
 
-                <li><label for="cantidadcargas">Cantidad de cargas familiares</label>
-                    <input type="number" id="cantidadcargas" name="cantidadcargas" required></li>
-
-            </ul>
+                <li><label for="cantidadCargas">Cantidad de cargas familiares</label>
+                    <input type="number" id="cantidadCargas" name="cargasFamiliares" required></li>
+                
+            </ul><br>
+            <button onclick="calcularPermanencia(fechaIngresoUsuario, fechaActual)">Permanencia</button>
+            <button onclick="calcularSueldo(nombreUsuario, apellidoUsuario, sueldoActualUsuario, sueldoSemestreAnterior, tieneCargasFamiliares, cantidadCargasFamiliares)">Calcular sueldo</button>
         </form>
+        <div id="resultadoPermanencia">
+            -----
+        </div>
+        <div id="resultadoSueldo">
+            -----
+        </div>
     </main>
+
 </body>
 </html>
