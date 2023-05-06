@@ -16,39 +16,28 @@
             <ul><li><a href="#">Formulario</a></l></ul>
             <ul><li><a href="#">Personal</a></li></ul>
             <ul><li><a href="#">Contacto</a></li></ul>
-         
         </nav>
-        
     </header>
-   
     <main>
         <form>
             <ul>
-
                 <!-- ******************* NOMBRE Y APELLIDOS *************************** -->
-
                 <li><label for="nombres">Nombres</label>
                 <input type="text" id="nombres" name="nombres" required> <br> </li>
-            
                 <li><label for="apellidos">Apellidos</label>
                 <input type="text" id="apellidos" name="Apellidos" required><br></li>
-
                 <!-- ******************* FECHA DE NACIMIENTO *************************** -->
-                
                 <li><label for="fecha_nacimiento">Fecha de nacimiento:</label>
                 <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br>
                 </li>
-
                 <!-- ******************* CORREO *************************** -->
-
                 <li>
                 <label for="mail">Correo electrónico</label>
                 <input type="email" id="mail" name="user_email">
                 </li>
                 <!-- ******************* TRABAJADOR ACTIVO *************************** -->
-
                 <li>
-                <label for="activo">¿Es 
+                <label for="activo">¿Es
                     trabajador activo?</label>
                 <select id="activo" name="activo">
                     <option value="si">Sí</option>
@@ -56,38 +45,27 @@
                  <textarea id="msg" name="user_message"></textarea>
                 </li>
                 <!-- ******************* FECHA DE INGRESO *************************** -->
-
                 <li><label for="fecha-ingreso">Fecha de ingreso</label>
                 <input type="date" id="fecha-ingreso" name="fecha-ingreso" required></li>
-
                 <!-- ******************* SUELDO ACTUAL *************************** -->
-
                 <li><label for="sueldo-actual">Sueldo actual</label>
                 <input type="number" id="sueldo-actual" name="sueldo-actual" required></li>
-
                 <!-- ******************* SUELDO SEMESTRE ANTERIOR *************************** -->
-
                 <li><label for="sueldo semestre anterior">Sueldo semestre anterior</label>
                     <input type="number" id="sueldoSemestreAnterior" name="sueldoSemestreAnterior" required></li>
-
                 <!-- ******************* CARGAS FAMILIARES *************************** -->
-                
                 <li><label for="cargas">¿Tiene cargas familiares?</label>
                     <select id="tieneCargasFamiliares" name="tieneCargasFamiliares">
                         <option value="si">Sí</option>
                         <option value="no">No</option></select></li>
-
                 <!-- ******************* CANTIDAD CARGAS FAMILIARES *************************** -->
-
                 <li><label for="cantidadCargas">Cantidad de cargas familiares</label>
                     <input type="number" id="cantidadCargas" name="cargasFamiliares" required></li>
-                
             </ul><br>
             <button type="button" onclick="mostrarPermanencia();">Permanencia</button>
             <button type="button" onclick="mostrarSueldo();">Calcular sueldo</button>
             <button type="button" onclick="imprimirObjeto();">Ver Objeto</button>
         </form>
-
         <div id="muestraPermanencia"></div> <br>
         <div id="muestraSueldo"></div>
         <br>
