@@ -68,6 +68,8 @@ function mostrarSueldo() {
       <p>Monto de carga familiar: $${resultados[1].toFixed(2)}</p>
       <p>Sueldo final: $${resultados[2].toFixed(2)}</p>
   `;
+
+  
 }
 
 // RESPUESTA B
@@ -103,6 +105,10 @@ let montoCargaFamiliar = 0;
 let sueldoFinal = 0;
 let fechaActual = new Date();
 
+
+
+
+
 function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
   const diffTime = Math.abs(fechaActual - fechaIngresoUsuario);
 
@@ -124,6 +130,7 @@ function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
   const respuesta3 = `Su permanencia en la organización es de: ${diffYears} años y ${
     diffMonths % 12
   } meses y ${remainingDays} días`;
+  
   const respuesta4 = `Para completar el año de permanencia faltan: ${
     365 - remainingDays
   } días`;
@@ -132,6 +139,11 @@ function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
 
   console.log(respuesta1, respuesta2, respuesta3, respuesta4);
 }
+
+
+
+
+
 
 function calcularSueldo(
   nombreUsuario,
