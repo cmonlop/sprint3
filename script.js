@@ -1,22 +1,5 @@
-// RESPUESTA A
-// *************************** EJEMPLO VALIDACION **********************************
-// document.addEventListener("DOMContentLoaded", function() {
-//     document.getElementById("formulario").addEventListener('submit', validarFormulario);
-//   });
-//   function validarFormulario(evento) {
-//     evento.preventDefault();
-//     var usuario = document.getElementById('usuario').value;
-//     if(usuario.length == 0) {
-//       alert('No has escrito nada en el usuario');
-//       return;
-//     }
-//     var clave = document.getElementById('clave').value;
-//     if (clave.length < 6) {
-//       alert('La clave no es válida');
-//       return;
-//     }
-//     this.submit();
-//   }
+// RESPUESTAs A, B, C, D.
+
 function mostrarPermanencia() {
   const fechaIngresoUsuario = new Date(
     document.getElementById("fecha-ingreso").value
@@ -63,13 +46,7 @@ function mostrarSueldo() {
       <p>Sueldo final: $${resultados[2].toFixed(2)}</p>
   `;
 }
-// RESPUESTA B
-// Para la respuesta b) deberán ser entregados los datos de:
-// o Su permanencia en la organización es de: 999 días
-// o Su permanencia en la organización es de: 999 meses
-// o Su permanencia en la organización es de: 99 años y 99 meses y 99 días
-// o Para completar el año de permanencia faltan: 999 días
-// ********************** SACADO DE EJERCICIO GRUPAL 4 ****************************
+
 const nombreUsuario = document.getElementById("nombres").value;
 const apellidoUsuario = document.getElementById("apellidos").value;
 const sueldoActualUsuario = parseFloat(
