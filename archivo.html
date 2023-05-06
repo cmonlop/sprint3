@@ -28,29 +28,29 @@
                 <!-- ******************* NOMBRE Y APELLIDOS *************************** -->
 
                 <li><label for="nombres">Nombres</label>
-                <input type="text" id="nombres" name="nombres" required> <br> </li>
+                <input type="text" id="nombreUsuario" name="nombres" required> <br> </li>
             
                 <li><label for="apellidos">Apellidos</label>
-                <input type="text" id="apellidos" name="Apellidos" required><br></li>
+                <input type="text" id="apellidoUsuario" name="Apellidos" required><br></li>
 
                 <!-- ******************* FECHA DE NACIMIENTO *************************** -->
                 
                 <li><label for="fecha_nacimiento">Fecha de nacimiento:</label>
-                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br>
+                <input type="text" id="fechaDeNacimientoUsuario" name="fecha_nacimiento" pattern="\d{4}-\d{2}-\d{2}" placeholder="YYYY-MM-DD" required>
                 </li>
 
                 <!-- ******************* CORREO *************************** -->
 
                 <li>
                 <label for="mail">Correo electrónico</label>
-                <input type="email" id="mail" name="user_email">
+                <input type="email" id="email" name="user_email">
                 </li>
                 <!-- ******************* TRABAJADOR ACTIVO *************************** -->
 
                 <li>
                 <label for="activo">¿Es 
                     trabajador activo?</label>
-                <select id="activo" name="activo">
+                <select id="trabajadorActivo" name="activo">
                     <option value="si">Sí</option>
                     <option value="no">No</option>
                  <textarea id="msg" name="user_message"></textarea>
@@ -58,30 +58,36 @@
                 <!-- ******************* FECHA DE INGRESO *************************** -->
 
                 <li><label for="fecha-ingreso">Fecha de ingreso</label>
-                <input type="date" id="fecha-ingreso" name="fecha-ingreso" required></li>
+                <input type="text" id="fechaIngresoUsuario" name="fecha-ingreso"pattern="\d{4}-\d{2}-\d{2}" placeholder="YYYY-MM-DD"required></li>
 
                 <!-- ******************* SUELDO ACTUAL *************************** -->
 
                 <li><label for="sueldo-actual">Sueldo actual</label>
-                <input type="number" id="sueldo-actual" name="sueldo-actual" required></li>
+                <input type="text" id="sueldoActualUsuario" name="sueldo-actual" required></li>
 
                 <!-- ******************* SUELDO SEMESTRE ANTERIOR *************************** -->
 
                 <li><label for="sueldo semestre anterior">Sueldo semestre anterior</label>
-                    <input type="number" id="sueldo semestre anterior" name="sueldo semestre anterior" required></li>
+                    <input type="text" id="sueldoSemestreAnterior" name="sueldo semestre anterior" required></li>
 
                 <!-- ******************* CARGAS FAMILIARES *************************** -->
                 
                 <li><label for="cargas">¿Tiene cargas familiares?</label>
-                    <select id="activo" name="activo">
+                    <select id="tieneCargasFamiliares" name="activo">
                         <option value="si">Sí</option>
                         <option value="no">No</option></select></li>
 
                 <!-- ******************* CANTIDAD CARGAS FAMILIARES *************************** -->
-
                 <li><label for="cantidadCargas">Cantidad de cargas familiares</label>
-                    <input type="number" id="cantidadCargas" name="cargasFamiliares" required></li>
+                    <input type="text" id="cantidadCargasFamiliares" name="cargasFamiliares" required></li>
 
+                    <!-- ******************* MONTO CARGA FAMILIAR *************************** -->
+                    <li><label for="monto carga familiar">Monto Carga Familiar</label>
+                        <input type="text" id="monto carga familiar" name="monto carga familiar" required></li>
+                    <!-- ******************* SUELDO FINAL*************************** -->
+                    <li><label for="sueldo final">Sueldo Final</label>
+                        <input type="text" id="sueldo final" name="sueldo final" required></li>
+                        <div><input type="submit" value="Enviar"></div>
             </ul>
         </form>
     </main>
