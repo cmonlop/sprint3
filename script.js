@@ -60,27 +60,16 @@
 
 // ********************** SACADO DE EJERCICIO GRUPAL 4 ****************************
 
-  const nombreUsuario = document.getElementById("nombreUsuario").value;
-  const apellidoUsuario = document.getElementById("apellidoUsuario").value;
-  const sueldoActualUsuario = parseFloat(document.getElementById("sueldoActual").value);
-  const sueldoSemestreAnterior = parseFloat(document.getElementById("sueldoSemestreAnterior").value);
-  const tieneCargasFamiliares = document.getElementById("tieneCargasFamiliares").value === "si";
-  const cantidadCargasFamiliares = parseInt(document.getElementById("cantidadCargasFamiliares").value);
+const nombreUsuario = document.getElementById("nombres").value;
+const apellidoUsuario = document.getElementById("apellidos").value;
+const sueldoActualUsuario = parseFloat(document.getElementById("sueldo-actual").value);
+const sueldoSemestreAnterior = parseFloat(document.getElementById("sueldo semestre anterior").value);
+const tieneCargasFamiliares = document.getElementById("activo").value === "si";
+const cantidadCargasFamiliares = parseInt(document.getElementById("cantidadCargas").value);
 
-
-  const fechaDeNacimientoUsuario = parseInt(document.getElementById("fechaDeNacimientoUsuario").value);
-  const fechaIngresoUsuario = parseInt(document.getElementById("fechaIngresoUsuario").value);
-
-//let nombreUsuario = "cualquiera";
-//let apellidoUsuario = "casilomismo";
-//let fechaDeNacimientoUsuario = new Date ('1991-04-19');
-//let trabajadorActivo = true;
-//let fechaIngresoUsuario = new Date('1999-12-19');
-//let sueldoActualUsuario = 500000;
-//let sueldoSemestreAnterior = 490000;
-//let tieneCargasFamiliares = true;
+const fechaDeNacimientoUsuario = new Date(document.getElementById("fecha_nacimiento").value);
+const fechaIngresoUsuario = new Date(document.getElementById("fecha-ingreso").value);
 let montoCargaFamiliar = 0;
-//let cantidadCargasFamiliares = 3;
 let sueldoFinal = 0;
 let fechaActual = new Date();
 
@@ -106,9 +95,9 @@ function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
   
   //Para Ejecutar
   
-  const respuestas = calcularPermanencia(fechaIngresoUsuario, fechaActual);
+  // const respuestas = calcularPermanencia(fechaIngresoUsuario, fechaActual);
   
-  console.log(respuestas);
+  // console.log(respuestas);
   
 
 
@@ -121,8 +110,6 @@ function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
 // Monto de Carga familiar
 // Sueldo Final (al que se le suma el valor de carga familiar)
 
-
-// ***************************** SACADO DE EJERCICIO GRUPAL 5 ************************
 
 function calcularSueldo(nombreUsuario, apellidoUsuario, sueldoActualUsuario, sueldoSemestreAnterior, tieneCargasFamiliares, cantidadCargasFamiliares)
 
@@ -168,7 +155,7 @@ sueldoFinal = Math.round(sueldoFinal * 100) / 100; // Redondea el sueldo final a
 }
 
 //Para Probar
-calcularSueldo(nombreUsuario, apellidoUsuario, sueldoActualUsuario, sueldoSemestreAnterior, tieneCargasFamiliares, cantidadCargasFamiliares);
+// calcularSueldo(nombreUsuario, apellidoUsuario, sueldoActualUsuario, sueldoSemestreAnterior, tieneCargasFamiliares, cantidadCargasFamiliares);
 
 
 
