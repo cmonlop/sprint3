@@ -67,13 +67,13 @@
 
                 <!-- ******************* SUELDO SEMESTRE ANTERIOR *************************** -->
 
-                <li><label for="sueldosemestreanterior">Sueldo semestre anterior</label>
-                    <input type="number" id="sueldosemestreanterior" name="sueldosemestreanterior" required></li>
+                <li><label for="sueldo semestre anterior">Sueldo semestre anterior</label>
+                    <input type="number" id="sueldoSemestreAnterior" name="sueldoSemestreAnterior" required></li>
 
                 <!-- ******************* CARGAS FAMILIARES *************************** -->
                 
                 <li><label for="cargas">¿Tiene cargas familiares?</label>
-                    <select id="cargas" name="cargas">
+                    <select id="tieneCargasFamiliares" name="tieneCargasFamiliares">
                         <option value="si">Sí</option>
                         <option value="no">No</option></select></li>
 
@@ -83,8 +83,8 @@
                     <input type="number" id="cantidadCargas" name="cargasFamiliares" required></li>
                 
             </ul><br>
-            <button onclick="calcularPermanencia(fechaIngresoUsuario, fechaActual)">Permanencia</button>
-            <button onclick="calcularSueldo(nombreUsuario, apellidoUsuario, sueldoActualUsuario, sueldoSemestreAnterior, tieneCargasFamiliares, cantidadCargasFamiliares)">Calcular sueldo</button>
+            <button type="button" onclick="mostrarPermanencia();">Permanencia</button>
+            <button type="button" onclick="mostrarSueldo();">Calcular sueldo</button>
         </form>
         <div id="resultadoPermanencia">
             -----
@@ -93,6 +93,6 @@
             -----
         </div>
     </main>
-
+<script src="script.js"></script>
 </body>
 </html>
