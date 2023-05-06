@@ -31,7 +31,7 @@
                 <input type="text" id="nombres" name="nombres" required> <br> </li>
             
                 <li><label for="apellidos">Apellidos</label>
-                <input type="text" id="apellidos" name="Apellidos" required><br></li>
+                <input type="text" id="apellidos" name="apellidos" required><br></li>
 
                 <!-- ******************* FECHA DE NACIMIENTO *************************** -->
                 
@@ -67,13 +67,13 @@
 
                 <!-- ******************* SUELDO SEMESTRE ANTERIOR *************************** -->
 
-                <li><label for="sueldo semestre anterior">Sueldo semestre anterior</label>
-                    <input type="number" id="sueldo semestre anterior" name="sueldo semestre anterior" required></li>
+                <li><label for="sueldosemestreanterior">Sueldo semestre anterior</label>
+                    <input type="number" id="sueldosemestreanterior" name="sueldosemestreanterior" required></li>
 
                 <!-- ******************* CARGAS FAMILIARES *************************** -->
                 
                 <li><label for="cargas">¿Tiene cargas familiares?</label>
-                    <select id="activo" name="activo">
+                    <select id="cargas" name="cargas">
                         <option value="si">Sí</option>
                         <option value="no">No</option></select></li>
 
@@ -83,13 +83,15 @@
                     <input type="number" id="cantidadCargas" name="cargasFamiliares" required></li>
                 
             </ul><br>
-            <button onclick="calcularPermanencia()">Permanencia</button>
-            <button onclick="calcularSueldo()">Calcular sueldo</button>
+            <button onclick="calcularPermanencia(fechaIngresoUsuario, fechaActual)">Permanencia</button>
+            <button onclick="calcularSueldo(nombreUsuario, apellidoUsuario, sueldoActualUsuario, sueldoSemestreAnterior, tieneCargasFamiliares, cantidadCargasFamiliares)">Calcular sueldo</button>
         </form>
-
-        <div id="muestraPermanencia"></div> <br>
-        <div id="muestraSueldo"></div>
-        <br>
+        <div id="resultadoPermanencia">
+            -----
+        </div>
+        <div id="resultadoSueldo">
+            -----
+        </div>
     </main>
 
 </body>
