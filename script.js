@@ -210,15 +210,31 @@ function calcularSueldo(
 
 
 function imprimirObjeto(){
-  const sueldoActualUsuario = parseFloat(
-    document.getElementById("sueldo-actual").value
+  const nombreUsuario = document.getElementById("nombres").value;
+  const apellidoUsuario = document.getElementById("apellidos").value;
+  const fechaDeNacimientoUsuario = new Date(
+    document.getElementById("fecha_nacimiento").value
   );
-  const sueldoSemestreAnterior = parseFloat(
-    document.getElementById("sueldoSemestreAnterior").value
-  );
+  const activo = document.getElementById("activo").value;  
+
   const fechaIngresoUsuario = new Date(
     document.getElementById("fecha-ingreso").value
   );
+ 
+  const sueldoActualUsuario = parseFloat(
+  document.getElementById("sueldo-actual").value
+  );
+
+  const sueldoSemestreAnterior = parseFloat(
+    document.getElementById("sueldoSemestreAnterior").value
+  );
+
+  const tieneCargasFamiliares = document.getElementById("activo").value === "si";
+  
+  const cantidadCargasFamiliares = parseInt(
+  document.getElementById("cantidadCargas").value
+  );
+
 
   if (
     tieneCargasFamiliares === "si" &&
@@ -269,30 +285,19 @@ function imprimirObjeto(){
   console.log(persona);
   const objeto = document.getElementById("objeto");
   objeto.innerHTML = `
-    <p>Imprimo el Objeto:   
-  
-  ${persona.nombre}
-  ${persona.apellidos}
-  ${persona.fechaDeNacimiento}
-  ${persona.trabajadorActivo}
-  ${persona.fechaIngreso}
-  ${persona.suedoActual}
-  ${persona.sueldoSemestreAnterior}
-  ${persona.tieneCargas}
-  ${persona.montoCarga}
-  ${persona.cantidadCargas}
-  ${persona.sueldoFinal}</p>`
+    <p>Imprimo el Objeto:  
+    Nombres :${persona.nombre} \n 
+    Apellidos :${persona.apellidos} \n
+    Fecha Nacimiento :${persona.fechaDeNacimiento} \n
+    Es trabajador activo :${persona.trabajadorActivo} \n
+    Fecha ingreso :${persona.fechaIngreso} \n
+    Sueldo Actual :${persona.suedoActual} \n
+    Sueldo Semestre Anterior :${persona.sueldoSemestreAnterior} \n
+    Tiene Cargas : ${persona.tieneCargas} \n
+    Este es monto: ${persona.montoCarga} \n
+    Cantidad de cargas :${persona.cantidadCargas} \n
+    Este es sueldo Final: ${persona.sueldoFinal}</p>`
   ;
-
-  
-  // <p>Nombre: ${persona.nombre} ${persona.apellidp}</p>
-  // <p>Sueldo actual: $${sueldoActualUsuario.toFixed(2)}</p>
-  
-  // <p>Tiene cargas familiares: $${persona.tieneCargas}</p>
-  // <p>Tiene cargas familiares: $${persona.tieneCargas}</p>
-  // <p>Monto de carga familiar: $${montoCargaFamiliar.toFixed(2)}</p>
-  // <p>Cantidad de cargas familiares: $${persona.cantidadCargas}</p>
-  // <p>Sueldo final: $${sueldoFinal.toFixed(2)}</p>
   }
 
 
