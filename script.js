@@ -1,12 +1,11 @@
-
 // RESPUESTA A
 
 // *************************** EJEMPLO VALIDACION **********************************
 
 // document.addEventListener("DOMContentLoaded", function() {
-//     document.getElementById("formulario").addEventListener('submit', validarFormulario); 
+//     document.getElementById("formulario").addEventListener('submit', validarFormulario);
 //   });
-  
+
 //   function validarFormulario(evento) {
 //     evento.preventDefault();
 //     var usuario = document.getElementById('usuario').value;
@@ -22,32 +21,54 @@
 //     this.submit();
 //   }
 
+function mostrarPermanencia() {
+  const fechaIngresoUsuario = new Date(
+    document.getElementById("fecha-ingreso").value
+  );
+  const fechaActual = new Date();
+  const resultados = calcularPermanencia(fechaIngresoUsuario, fechaActual);
+  const muestraPermanencia = document.getElementById("muestraPermanencia");
+  muestraPermanencia.innerHTML = `
+      <p>${resultados[0]}</p>
+      <p>${resultados[1]}</p>
+      <p>${resultados[2]}</p>
+      <p>${resultados[3]}</p>
+  `;
+}
 
-// ***************************** DATOS A VALIDAR *********************************
+function mostrarSueldo() {
+  const nombreUsuario = document.getElementById("nombres").value;
+  const apellidoUsuario = document.getElementById("apellidos").value;
+  const sueldoActualUsuario = parseFloat(
+    document.getElementById("sueldo-actual").value
+  );
+  const sueldoSemestreAnterior = parseFloat(
+    document.getElementById("sueldoSemestreAnterior").value
+  );
+  const tieneCargasFamiliares = document.getElementById(
+    "tieneCargasFamiliares"
+  ).value;
+  const cantidadCargasFamiliares = parseInt(
+    document.getElementById("cantidadCargas").value
+  );
 
-//  NOMBRE (String)
-//  APELLIDOS (String)
-//  Fecha de nacimiento (fecha o string, según decida el grupo)
-//  Si es o no el trabajador activo (lógico si/no)
-//  Fecha de ingreso a la organización (fecha o string, según decida el grupo)
-//  Sueldo actual (número entero)
-//  Sueldo semestre anterior (número entero)
-//  Valor lógico para indicar si corresponde cargas familiares o no, para trabajador activo (lógico si/no)
-//  Cantidad de cargas familiares (número, sólo leerá a quienes si corresponda)
-
-//Aca creamos el objete Persona
-// const  persona ={
-//     nombre : "",
-//     apellidos : "",
-//     fechNac : DATE,
-//     trabajadorActivo : false, 
-//     fechaIngreso : DATE,
-//     suedoActualUsuarion : 0,
-//     sueldoSemestreAnterior: 0,
-//     tieneCargas : false,
-//     cantidadCargas : 0,
-// }
-
+  const resultados = calcularSueldo(
+    nombreUsuario,
+    apellidoUsuario,
+    sueldoActualUsuario,
+    sueldoSemestreAnterior,
+    tieneCargasFamiliares,
+    cantidadCargasFamiliares
+  );
+  console.log(resultados); // para que se entienda
+  const muestraSueldo = document.getElementById("muestraSueldo");
+  muestraSueldo.innerHTML = `
+      <p>Nombre: ${nombreUsuario} ${apellidoUsuario}</p>
+      <p>Sueldo actual: $${resultados[0].toFixed(2)}</p>
+      <p>Monto de carga familiar: $${resultados[1].toFixed(2)}</p>
+      <p>Sueldo final: $${resultados[2].toFixed(2)}</p>
+  `;
+}
 
 // RESPUESTA B
 
@@ -57,120 +78,118 @@
 // o Su permanencia en la organización es de: 99 años y 99 meses y 99 días
 // o Para completar el año de permanencia faltan: 999 días
 
-
 // ********************** SACADO DE EJERCICIO GRUPAL 4 ****************************
 
 const nombreUsuario = document.getElementById("nombres").value;
 const apellidoUsuario = document.getElementById("apellidos").value;
-const sueldoActualUsuario = parseFloat(document.getElementById("sueldo-actual").value);
-const sueldoSemestreAnterior = parseFloat(document.getElementById("sueldo semestre anterior").value);
+const sueldoActualUsuario = parseFloat(
+  document.getElementById("sueldo-actual").value
+);
+const sueldoSemestreAnterior = parseFloat(
+  document.getElementById("sueldoSemestreAnterior").value
+);
 const tieneCargasFamiliares = document.getElementById("activo").value === "si";
-const cantidadCargasFamiliares = parseInt(document.getElementById("cantidadCargas").value);
+const cantidadCargasFamiliares = parseInt(
+  document.getElementById("cantidadCargas").value
+);
 
-const fechaDeNacimientoUsuario = new Date(document.getElementById("fecha_nacimiento").value);
-const fechaIngresoUsuario = new Date(document.getElementById("fecha-ingreso").value);
+const fechaDeNacimientoUsuario = new Date(
+  document.getElementById("fecha_nacimiento").value
+);
+const fechaIngresoUsuario = new Date(
+  document.getElementById("fecha-ingreso").value
+);
 let montoCargaFamiliar = 0;
 let sueldoFinal = 0;
 let fechaActual = new Date();
 
 function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
-    const diffTime = Math.abs(fechaActual - fechaIngresoUsuario);
-  
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    const diffMonths = (fechaActual.getFullYear() - fechaIngresoUsuario.getFullYear()) * 12 + (fechaActual.getMonth() - fechaIngresoUsuario.getMonth());
-    const diffYears = Math.floor(diffDays / 365);
-    const remainingDays = (fechaIngresoUsuario.getMonth() === 1 && fechaIngresoUsuario.getDate() === 29 && fechaActual.getMonth() === 1 && fechaActual.getDate() === 28) ? 1 : Math.floor(diffDays % 365);
-    
-    const respuesta1 = `Su permanencia en la organización es de: ${diffDays} días`;
-    const respuesta2 = `Su permanencia en la organización es de: ${diffMonths} meses`;
-    const respuesta3 = `Su permanencia en la organización es de: ${diffYears} años y ${diffMonths % 12} meses y ${remainingDays} días`;
-    const respuesta4 = `Para completar el año de permanencia faltan: ${365 - remainingDays} días`;
-    
-    return [respuesta1, respuesta2, respuesta3, respuesta4];
+  const diffTime = Math.abs(fechaActual - fechaIngresoUsuario);
 
-    alert(respuesta1, respuesta2, respuesta3, respuesta4);
+  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+  const diffMonths =
+    (fechaActual.getFullYear() - fechaIngresoUsuario.getFullYear()) * 12 +
+    (fechaActual.getMonth() - fechaIngresoUsuario.getMonth());
+  const diffYears = Math.floor(diffDays / 365);
+  const remainingDays =
+    fechaIngresoUsuario.getMonth() === 1 &&
+    fechaIngresoUsuario.getDate() === 29 &&
+    fechaActual.getMonth() === 1 &&
+    fechaActual.getDate() === 28
+      ? 1
+      : Math.floor(diffDays % 365);
 
+  const respuesta1 = `Su permanencia en la organización es de: ${diffDays} días`;
+  const respuesta2 = `Su permanencia en la organización es de: ${diffMonths} meses`;
+  const respuesta3 = `Su permanencia en la organización es de: ${diffYears} años y ${
+    diffMonths % 12
+  } meses y ${remainingDays} días`;
+  const respuesta4 = `Para completar el año de permanencia faltan: ${
+    365 - remainingDays
+  } días`;
 
-  }
-  
-  //Para Ejecutar
-  
-  // const respuestas = calcularPermanencia(fechaIngresoUsuario, fechaActual);
-  
-  // console.log(respuestas);
-  
+  return [respuesta1, respuesta2, respuesta3, respuesta4];
 
+  console.log(respuesta1, respuesta2, respuesta3, respuesta4);
+}
 
-// RESPUESTA C.
-
-// Deberán ser entregados los datos de:
-
-// Nombre y Apellidos
-// Sueldo actual
-// Monto de Carga familiar
-// Sueldo Final (al que se le suma el valor de carga familiar)
-
-
-function calcularSueldo(nombreUsuario, apellidoUsuario, sueldoActualUsuario, sueldoSemestreAnterior, tieneCargasFamiliares, cantidadCargasFamiliares)
-
- {
- //inicializar
+function calcularSueldo(
+  nombreUsuario,
+  apellidoUsuario,
+  sueldoActualUsuario,
+  sueldoSemestreAnterior,
+  tieneCargasFamiliares,
+  cantidadCargasFamiliares
+) {
+  //inicializar
   let montoCargaFamiliar = 0;
- 
- if (tieneCargasFamiliares && sueldoSemestreAnterior <= 429899 && cantidadCargasFamiliares >= 1) {
+  // (tieneCargasFamiliares === si)
+
+  if (
+    tieneCargasFamiliares === "si" &&
+    sueldoSemestreAnterior <= 429899 &&
+    cantidadCargasFamiliares >= 1
+  ) {
     montoCargaFamiliar = cantidadCargasFamiliares * 16828;
     sueldoFinal = sueldoActualUsuario + montoCargaFamiliar;
-      
-  } else if (tieneCargasFamiliares && sueldoSemestreAnterior > 429899 && sueldoSemestreAnterior <= 627913 && cantidadCargasFamiliares >= 1){
+  } else if (
+    tieneCargasFamiliares === "si" &&
+    sueldoSemestreAnterior > 429899 &&
+    sueldoSemestreAnterior <= 627913 &&
+    cantidadCargasFamiliares >= 1
+  ) {
     montoCargaFamiliar = cantidadCargasFamiliares * 10327;
     sueldoFinal = sueldoActualUsuario + montoCargaFamiliar;
-    
-  } else if (tieneCargasFamiliares && sueldoSemestreAnterior > 627913 && sueldoSemestreAnterior <= 979330 && cantidadCargasFamiliares >= 1){
+  } else if (
+    tieneCargasFamiliares === "si" &&
+    sueldoSemestreAnterior > 627913 &&
+    sueldoSemestreAnterior <= 979330 &&
+    cantidadCargasFamiliares >= 1
+  ) {
     montoCargaFamiliar = cantidadCargasFamiliares * 10327;
     sueldoFinal = sueldoActualUsuario + montoCargaFamiliar;
-    
-  } else if (tieneCargasFamiliares && sueldoSemestreAnterior > 979330 && cantidadCargasFamiliares >= 1){
+  } else if (
+    tieneCargasFamiliares &&
+    sueldoSemestreAnterior > 979330 &&
+    cantidadCargasFamiliares >= 1
+  ) {
     sueldoFinal = sueldoActualUsuario;
-    
   }
-  
-sueldoFinal = Math.round(sueldoFinal * 100) / 100; // Redondea el sueldo final a dos decimales
 
-
+  sueldoFinal = Math.round(sueldoFinal * 100) / 100; // Redondea el sueldo final a dos decimales
 
   console.log(`Nombre: ${nombreUsuario} ${apellidoUsuario}`);
   console.log(`Sueldo actual: $${sueldoActualUsuario}`);
   console.log(`Monto de carga familiar: ${montoCargaFamiliar}`);
   console.log(`Sueldo final: $${sueldoFinal.toFixed(2)}`); // Convierte el número en una cadena con dos decimales
 
-// ejemplo para el innerHTML
+  // ejemplo para el innerHTML
 
-    const muestraSueldo = document.getElementById("muestraSueldo");
-    muestraSueldo.innerHTML = `
+  const muestraSueldo = document.getElementById("muestraSueldo");
+  muestraSueldo.innerHTML = `
     <p>Nombre: ${nombreUsuario} ${apellidoUsuario}</p>
     <p>Sueldo actual: $${sueldoActualUsuario.toFixed(2)}</p>
     <p>Monto de carga familiar: $${montoCargaFamiliar.toFixed(2)}</p>
     <p>Sueldo final: $${sueldoFinal.toFixed(2)}</p>
   `;
-}
-
-//Para Probar
-// calcularSueldo(nombreUsuario, apellidoUsuario, sueldoActualUsuario, sueldoSemestreAnterior, tieneCargasFamiliares, cantidadCargasFamiliares);
-
-
-
-// RESPUESTA D
-
-const persona = {
-    nombre : nombreUsuario,
-    apellidos : apellidoUsuario,
-    fechaDeNacimiento : fechaDeNacimientoUsuario,
-    trabajadorActivo : true, 
-    fechaIngreso : fechaIngresoUsuario,
-    suedoActual : sueldoActualUsuarioUsuario,
-    sueldoSemestreAnterior: sueldoSemestreAnterior,
-    tieneCargas : tieneCargasFamiliares,
-    montoCarga : montoCargaFamiliar,
-    cantidadCargas : cantidadCargasFamiliares,
-    sueldoFinal : sueldoFinal
 }
