@@ -1,11 +1,8 @@
 // RESPUESTA A
-
 // *************************** EJEMPLO VALIDACION **********************************
-
 // document.addEventListener("DOMContentLoaded", function() {
 //     document.getElementById("formulario").addEventListener('submit', validarFormulario);
 //   });
-
 //   function validarFormulario(evento) {
 //     evento.preventDefault();
 //     var usuario = document.getElementById('usuario').value;
@@ -20,7 +17,6 @@
 //     }
 //     this.submit();
 //   }
-
 function mostrarPermanencia() {
   const fechaIngresoUsuario = new Date(
     document.getElementById("fecha-ingreso").value
@@ -35,7 +31,6 @@ function mostrarPermanencia() {
       <p>${resultados[3]}</p>
   `;
 }
-
 function mostrarSueldo() {
   const nombreUsuario = document.getElementById("nombres").value;
   const apellidoUsuario = document.getElementById("apellidos").value;
@@ -51,7 +46,6 @@ function mostrarSueldo() {
   const cantidadCargasFamiliares = parseInt(
     document.getElementById("cantidadCargas").value
   );
-
   const resultados = calcularSueldo(
     nombreUsuario,
     apellidoUsuario,
@@ -69,17 +63,13 @@ function mostrarSueldo() {
       <p>Sueldo final: $${resultados[2].toFixed(2)}</p>
   `;
 }
-
 // RESPUESTA B
-
 // Para la respuesta b) deberán ser entregados los datos de:
 // o Su permanencia en la organización es de: 999 días
 // o Su permanencia en la organización es de: 999 meses
 // o Su permanencia en la organización es de: 99 años y 99 meses y 99 días
 // o Para completar el año de permanencia faltan: 999 días
-
 // ********************** SACADO DE EJERCICIO GRUPAL 4 ****************************
-
 const nombreUsuario = document.getElementById("nombres").value;
 const apellidoUsuario = document.getElementById("apellidos").value;
 const sueldoActualUsuario = parseFloat(
@@ -92,7 +82,6 @@ const tieneCargasFamiliares = document.getElementById("activo").value === "si";
 const cantidadCargasFamiliares = parseInt(
   document.getElementById("cantidadCargas").value
 );
-
 const fechaDeNacimientoUsuario = new Date(
   document.getElementById("fecha_nacimiento").value
 );
@@ -102,10 +91,8 @@ const fechaIngresoUsuario = new Date(
 let montoCargaFamiliar = 0;
 let sueldoFinal = 0;
 let fechaActual = new Date();
-
 function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
   const diffTime = Math.abs(fechaActual - fechaIngresoUsuario);
-
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
   const diffMonths =
     (fechaActual.getFullYear() - fechaIngresoUsuario.getFullYear()) * 12 +
@@ -118,7 +105,6 @@ function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
     fechaActual.getDate() === 28
       ? 1
       : Math.floor(diffDays % 365);
-
   const respuesta1 = `Su permanencia en la organización es de: ${diffDays} días`;
   const respuesta2 = `Su permanencia en la organización es de: ${diffMonths} meses`;
   const respuesta3 = `Su permanencia en la organización es de: ${diffYears} años y ${
@@ -127,12 +113,9 @@ function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
   const respuesta4 = `Para completar el año de permanencia faltan: ${
     365 - remainingDays
   } días`;
-
   return [respuesta1, respuesta2, respuesta3, respuesta4];
-
   console.log(respuesta1, respuesta2, respuesta3, respuesta4);
 }
-
 function calcularSueldo(
   nombreUsuario,
   apellidoUsuario,
@@ -144,7 +127,6 @@ function calcularSueldo(
   //inicializar
   let montoCargaFamiliar = 0;
   // (tieneCargasFamiliares === si)
-
   if (
     tieneCargasFamiliares === "si" &&
     sueldoSemestreAnterior <= 429899 &&
@@ -175,16 +157,12 @@ function calcularSueldo(
   ) {
     sueldoFinal = sueldoActualUsuario;
   }
-
   sueldoFinal = Math.round(sueldoFinal * 100) / 100; // Redondea el sueldo final a dos decimales
-
   console.log(`Nombre: ${nombreUsuario} ${apellidoUsuario}`);
   console.log(`Sueldo actual: $${sueldoActualUsuario}`);
   console.log(`Monto de carga familiar: ${montoCargaFamiliar}`);
   console.log(`Sueldo final: $${sueldoFinal.toFixed(2)}`); // Convierte el número en una cadena con dos decimales
-
   // ejemplo para el innerHTML
-
   const muestraSueldo = document.getElementById("muestraSueldo");
   muestraSueldo.innerHTML = `
     <p>Nombre: ${nombreUsuario} ${apellidoUsuario}</p>
