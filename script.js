@@ -60,6 +60,13 @@
 
 // ********************** SACADO DE EJERCICIO GRUPAL 4 ****************************
 
+const nombreUsuario = document.getElementById("nombreUsuario").value;
+  const apellidoUsuario = document.getElementById("apellidoUsuario").value;
+  const sueldoActualUsuario = parseFloat(document.getElementById("sueldoActual").value);
+  const sueldoSemestreAnterior = parseFloat(document.getElementById("sueldoSemestreAnterior").value);
+  const tieneCargasFamiliares = document.getElementById("tieneCargasFamiliares").value === "si";
+  const cantidadCargasFamiliares = parseInt(document.getElementById("cantidadCargasFamiliares").value);
+
 
 let nombreUsuario = "cualquiera";
 let apellidoUsuario = "casilomismo";
