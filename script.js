@@ -60,7 +60,7 @@
 
 // ********************** SACADO DE EJERCICIO GRUPAL 4 ****************************
 
-const nombreUsuario = document.getElementById("nombreUsuario").value;
+  const nombreUsuario = document.getElementById("nombreUsuario").value;
   const apellidoUsuario = document.getElementById("apellidoUsuario").value;
   const sueldoActualUsuario = parseFloat(document.getElementById("sueldoActual").value);
   const sueldoSemestreAnterior = parseFloat(document.getElementById("sueldoSemestreAnterior").value);
@@ -99,7 +99,7 @@ function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
     
     return [respuesta1, respuesta2, respuesta3, respuesta4];
 
-    
+    alert(respuesta1, respuesta2, respuesta3, respuesta4);
 
 
   }
@@ -158,16 +158,13 @@ sueldoFinal = Math.round(sueldoFinal * 100) / 100; // Redondea el sueldo final a
 
 // ejemplo para el innerHTML
 
-  // const muestraSueldo = document.getElementById("muestraSueldo");
-  // muestraSueldo.innerHTML = `
-  //   <p>Nombre: ${nombreUsuario} ${apellidoUsuario}</p>
-  //   <p>Sueldo actual: $${sueldoActualUsuario.toFixed(2)}</p>
-  //   <p>Monto de carga familiar: $${montoCargaFamiliar.toFixed(2)}</p>
-  //   <p>Sueldo final: $${sueldoFinal.toFixed(2)}</p>
-  // `;
-
-
-
+    const muestraSueldo = document.getElementById("muestraSueldo");
+    muestraSueldo.innerHTML = `
+    <p>Nombre: ${nombreUsuario} ${apellidoUsuario}</p>
+    <p>Sueldo actual: $${sueldoActualUsuario.toFixed(2)}</p>
+    <p>Monto de carga familiar: $${montoCargaFamiliar.toFixed(2)}</p>
+    <p>Sueldo final: $${sueldoFinal.toFixed(2)}</p>
+  `;
 }
 
 //Para Probar
