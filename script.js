@@ -205,3 +205,95 @@ function calcularSueldo(
     <p>Sueldo final: $${sueldoFinal.toFixed(2)}</p>
   `;
 }
+
+//Objeto
+
+
+function imprimirObjeto(){
+  const sueldoActualUsuario = parseFloat(
+    document.getElementById("sueldo-actual").value
+  );
+  const sueldoSemestreAnterior = parseFloat(
+    document.getElementById("sueldoSemestreAnterior").value
+  );
+  const fechaIngresoUsuario = new Date(
+    document.getElementById("fecha-ingreso").value
+  );
+
+  if (
+    tieneCargasFamiliares === "si" &&
+    sueldoSemestreAnterior <= 429899 &&
+    cantidadCargasFamiliares >= 1
+  ) {
+    montoCargaFamiliar = cantidadCargasFamiliares * 16828;
+    sueldoFinal = sueldoActualUsuario + montoCargaFamiliar;
+  } else if (
+    tieneCargasFamiliares === "si" &&
+    sueldoSemestreAnterior > 429899 &&
+    sueldoSemestreAnterior <= 627913 &&
+    cantidadCargasFamiliares >= 1
+  ) {
+    montoCargaFamiliar = cantidadCargasFamiliares * 10327;
+    sueldoFinal = sueldoActualUsuario + montoCargaFamiliar;
+  } else if (
+    tieneCargasFamiliares === "si" &&
+    sueldoSemestreAnterior > 627913 &&
+    sueldoSemestreAnterior <= 979330 &&
+    cantidadCargasFamiliares >= 1
+  ) {
+    montoCargaFamiliar = cantidadCargasFamiliares * 10327;
+    sueldoFinal = sueldoActualUsuario + montoCargaFamiliar;
+  } else if (
+    tieneCargasFamiliares &&
+    sueldoSemestreAnterior > 979330 &&
+    cantidadCargasFamiliares >= 1
+  ) {
+    sueldoFinal = sueldoActualUsuario;
+  }
+
+  sueldoFinal = Math.round(sueldoFinal * 100) / 100; // Redondea el sueldo final a dos decimales
+
+  const persona = {
+      nombre : nombreUsuario,
+      apellidos : apellidoUsuario,
+      fechaDeNacimiento : fechaDeNacimientoUsuario,
+      trabajadorActivo : activo, 
+      fechaIngreso : fechaIngresoUsuario,
+      suedoActual : sueldoActualUsuario,
+      sueldoSemestreAnterior: sueldoSemestreAnterior,
+      tieneCargas : tieneCargasFamiliares,
+      montoCarga : montoCargaFamiliar,
+      cantidadCargas : cantidadCargasFamiliares,
+      sueldoFinal : sueldoFinal
+  }
+  console.log(persona);
+  const objeto = document.getElementById("objeto");
+  objeto.innerHTML = `
+    <p>Imprimo el Objeto:   
+  
+  ${persona.nombre}
+  ${persona.apellidos}
+  ${persona.fechaDeNacimiento}
+  ${persona.trabajadorActivo}
+  ${persona.fechaIngreso}
+  ${persona.suedoActual}
+  ${persona.sueldoSemestreAnterior}
+  ${persona.tieneCargas}
+  ${persona.montoCarga}
+  ${persona.cantidadCargas}
+  ${persona.sueldoFinal}</p>`
+  ;
+
+  
+  // <p>Nombre: ${persona.nombre} ${persona.apellidp}</p>
+  // <p>Sueldo actual: $${sueldoActualUsuario.toFixed(2)}</p>
+  
+  // <p>Tiene cargas familiares: $${persona.tieneCargas}</p>
+  // <p>Tiene cargas familiares: $${persona.tieneCargas}</p>
+  // <p>Monto de carga familiar: $${montoCargaFamiliar.toFixed(2)}</p>
+  // <p>Cantidad de cargas familiares: $${persona.cantidadCargas}</p>
+  // <p>Sueldo final: $${sueldoFinal.toFixed(2)}</p>
+  }
+
+
+
