@@ -68,16 +68,19 @@ const nombreUsuario = document.getElementById("nombreUsuario").value;
   const cantidadCargasFamiliares = parseInt(document.getElementById("cantidadCargasFamiliares").value);
 
 
-let nombreUsuario = "cualquiera";
-let apellidoUsuario = "casilomismo";
-let fechaDeNacimientoUsuario = new Date ('1991-04-19');
-let trabajadorActivo = true;
-let fechaIngresoUsuario = new Date('1999-12-19');
-let sueldoActualUsuario = 500000;
-let sueldoSemestreAnterior = 490000;
-let tieneCargasFamiliares = true;
+  const fechaDeNacimientoUsuario = parseInt(document.getElementById("fechaDeNacimientoUsuario").value);
+  const fechaIngresoUsuario = parseInt(document.getElementById("fechaIngresoUsuario").value);
+
+//let nombreUsuario = "cualquiera";
+//let apellidoUsuario = "casilomismo";
+//let fechaDeNacimientoUsuario = new Date ('1991-04-19');
+//let trabajadorActivo = true;
+//let fechaIngresoUsuario = new Date('1999-12-19');
+//let sueldoActualUsuario = 500000;
+//let sueldoSemestreAnterior = 490000;
+//let tieneCargasFamiliares = true;
 let montoCargaFamiliar = 0;
-let cantidadCargasFamiliares = 3;
+//let cantidadCargasFamiliares = 3;
 let sueldoFinal = 0;
 let fechaActual = new Date();
 
@@ -95,6 +98,10 @@ function calcularPermanencia(fechaIngresoUsuario, fechaActual) {
     const respuesta4 = `Para completar el año de permanencia faltan: ${365 - remainingDays} días`;
     
     return [respuesta1, respuesta2, respuesta3, respuesta4];
+
+    
+
+
   }
   
   //Para Ejecutar
@@ -148,6 +155,19 @@ sueldoFinal = Math.round(sueldoFinal * 100) / 100; // Redondea el sueldo final a
   console.log(`Sueldo actual: $${sueldoActualUsuario}`);
   console.log(`Monto de carga familiar: ${montoCargaFamiliar}`);
   console.log(`Sueldo final: $${sueldoFinal.toFixed(2)}`); // Convierte el número en una cadena con dos decimales
+
+// ejemplo para el innerHTML
+
+  // const muestraSueldo = document.getElementById("muestraSueldo");
+  // muestraSueldo.innerHTML = `
+  //   <p>Nombre: ${nombreUsuario} ${apellidoUsuario}</p>
+  //   <p>Sueldo actual: $${sueldoActualUsuario.toFixed(2)}</p>
+  //   <p>Monto de carga familiar: $${montoCargaFamiliar.toFixed(2)}</p>
+  //   <p>Sueldo final: $${sueldoFinal.toFixed(2)}</p>
+  // `;
+
+
+
 }
 
 //Para Probar
